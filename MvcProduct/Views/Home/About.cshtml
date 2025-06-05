@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "О компании";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        
+            margin: 0 auto;
+            padding: 30px;
+            color: #333;
+            line-height: 1.6;
+            background-color: white;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #0066cc;
+            margin: 30px 0 15px 0;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .dash-marker {
+            position: relative;
+            padding-left: 20px;
+        }
+
+            .dash-marker::before {
+                content: "—";
+                color: #ff6600;
+                position: absolute;
+                left: 0;
+            }
+
+        .highlight {
+            font-weight: 600;
+            color: #0066cc;
+        }
+
+        .accent {
+            font-weight: 600;
+            color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+
+    <p>Добро пожаловать в интернет-магазин бытовой техники <span class="accent">«Полюс»</span> — ваш надежный помощник в выборе качественной и современной техники для дома!</p>
+
+    <h2>Наша миссия</h2>
+    <p>Мы стремимся сделать вашу жизнь комфортнее, предлагая лучшую технику от проверенных мировых брендов. В нашем ассортименте — только надежные и инновационные решения, которые сэкономят ваше время, упростят быт и подарят удовольствие от использования.</p>
+
+    <h2>Почему выбирают нас?</h2>
+    <ul>
+        <li class="dash-marker"><span class="highlight">Широкий ассортимент</span> — холодильники, стиральные машины, плиты, мелкая кухонная техника, климатическое оборудование</li>
+        <li class="dash-marker"><span class="highlight">Оригинальная продукция</span> — все товары сертифицированы и поставляются напрямую от производителей</li>
+        <li class="dash-marker"><span class="highlight">Доступные цены</span> — регулярные акции, скидки и выгодные предложения</li>
+        <li class="dash-marker"><span class="highlight">Быстрая доставка</span> — оперативная отправка заказов по всей России</li>
+        <li class="dash-marker"><span class="highlight">Профессиональная поддержка</span> — наши консультанты помогут подобрать технику</li>
+    </ul>
+
+    <h2>Наши принципы</h2>
+    <ul>
+        <li class="dash-marker"><span class="highlight">Качество</span> — предлагаем только лучшие модели</li>
+        <li class="dash-marker"><span class="highlight">Надежность</span> — официальная гарантия на всю технику</li>
+        <li class="dash-marker"><span class="highlight">Клиентоориентированность</span> — для нас важен каждый покупатель</li>
+    </ul>
+
+    <p><span class="accent">«Полюс»</span> — это не просто магазин, это место, где вы найдете идеальную технику для вашего дома!</p>
+
+   
+</body>
+</html>

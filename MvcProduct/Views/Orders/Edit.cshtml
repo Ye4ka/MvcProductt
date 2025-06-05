@@ -1,0 +1,60 @@
+﻿@model MvcProduct.Models.Order
+
+@{
+    ViewData["Title"] = "Редактирование заказа";
+}
+
+<h1>Редактирование заказа</h1>
+
+<h4>Изменение данных заказа</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label">Клиент</label>
+                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId">
+                    <option value="">-- Выберите клиента --</option>
+                </select>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OrderDate" class="control-label">Дата заказа</label>
+                <input asp-for="OrderDate" class="form-control" />
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Статус</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Новый">Новый</option>
+                    <option value="В обработке">В обработке</option>
+                    <option value="Доставлен">Доставлен</option>
+                    <option value="Отменен">Отменен</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">ID товара</label>
+                <input type="number" name="productId" class="form-control"
+                       value="@(Model.Products?.FirstOrDefault()?.Id)" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Вернуться к списку</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,82 @@
+﻿@model MvcProduct.Models.OrderViewModel
+@{
+    ViewData["Title"] = "Список заказов";
+}
+
+<h1>Список заказов</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Создать новый заказ</a>
+</p>
+
+<form asp-controller="Orders" asp-action="Index" method="get">
+    <p>
+        <select asp-for="OrderStatus" asp-items="Model.Statuses">
+            <option value="">Все статусы</option>
+        </select>
+
+        <label>
+            Клиент:
+            <input type="text" asp-for="CustomerSearch" />
+        </label>
+
+        <label>
+            Товар:
+            <input type="text" asp-for="ProductSearch" />
+        </label>
+
+        <input type="submit" value="Поиск" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders![0].OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders![0].Customer)
+            </th>
+            <th>
+                Товары
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders![0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Orders!)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.FirstName)
+                    @Html.DisplayFor(modelItem => item.Customer.LastName)
+                </td>
+                <td>
+                    @if (item.Products != null && item.Products.Any())
+                    {
+                        @item.Products.First().Name 
+                    }
+                    else
+                    {
+                        <span>Нет товара</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
